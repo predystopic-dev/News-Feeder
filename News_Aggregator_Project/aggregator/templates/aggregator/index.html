@@ -1,0 +1,22 @@
+
+{% load static %}
+<html>
+    
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}"/>
+    </head>
+    <ul>
+        <li><a href="/"> Homepage </a> </li>
+        <li><a href="dashboard"> Dashboard </a> </li>
+        <li><a href="my-login"> My Login </a> </li>
+        <li><a href="profile-management"> Profile Management </a> </li>
+        <li><a href="register"> Register </a> </li>
+      </ul>
+    <H1> Aggregator <br> </H1>
+    
+    <H2> {{ page|default:"Homepage" }} </H2>
+    
+
+    <script src="{% static 'js/app.js' %}"> </script> 
+
+</html>
