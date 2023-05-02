@@ -2,9 +2,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href={% static 'css/style.css' %}>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href={% static 'css/style.css' %}>
 	<title>News Adda</title>
 
 </head>
@@ -32,28 +33,28 @@
         </div>
     </section>
 
-	<section class="about container" id="about">
-        <div class="contentBx">
-            <h2 class="titleText">News with bias checker</h2>
-            <p class="title-text">The application will aggregate news and information in real-time from sources requested by a user, categorize them based on content, and then
-				sort that as per individual usage using an ML-based recommendation system
-				Natural Language processing to analyzed if the document is biased towards or against any certain in person.<br>Media inarguably has the biggest influence over an individual’s life, be it
-				stuff as small as what to cook today, or what to watch on television, to
-				as big as who to vote for in elections. For users, this tool will tell them if
-				the article or the news source they’re following is biased, and if yes, how
-				much. This will make users conscious about how much biased media do
-				they consume and how it affects their daily decisions. System will also
-				analyze other details like who wrote the news, or in research related
-				news who funded the study, and minute details like these to decide in
-				how many ways the information user is going to consume is
-				contaminated
-            </p>
-            <a href="#" class="btn2">Read more</a>
-        </div>
-        <div class="imgBx">
-            <img src="{% static 'images/politics.jpg' %}" alt="" class="fitBg">
-        </div>
-    </section>
+{#	<section class="about container" id="about">#}
+{#        <div class="contentBx">#}
+{#            <h2 class="titleText">News with bias checker</h2>#}
+{#            <p class="title-text">The application will aggregate news and information in real-time from sources requested by a user, categorize them based on content, and then#}
+{#				sort that as per individual usage using an ML-based recommendation system#}
+{#				Natural Language processing to analyzed if the document is biased towards or against any certain in person.<br>Media inarguably has the biggest influence over an individual’s life, be it#}
+{#				stuff as small as what to cook today, or what to watch on television, to#}
+{#				as big as who to vote for in elections. For users, this tool will tell them if#}
+{#				the article or the news source they’re following is biased, and if yes, how#}
+{#				much. This will make users conscious about how much biased media do#}
+{#				they consume and how it affects their daily decisions. System will also#}
+{#				analyze other details like who wrote the news, or in research related#}
+{#				news who funded the study, and minute details like these to decide in#}
+{#				how many ways the information user is going to consume is#}
+{#				contaminated#}
+{#            </p>#}
+{#            <a href="#" class="btn2">Read more</a>#}
+{#        </div>#}
+{#        <div class="imgBx">#}
+{#            <img src="{% static 'images/politics.jpg' %}" alt="" class="fitBg">#}
+{#        </div>#}
+{#    </section>#}
 
 	<div class="post-filter container">
         <span class="filter-item active-filter" data-filter="all">All</span>
@@ -62,24 +63,22 @@
         <span class="filter-item" data-filter="news">News</span>
     </div>
 
-
-    {% for row in data %}
-	<div class="post container">
-        <!-- Post 1 -->
-        <div class="post-box tech">
-            <img src=" {{ row.image }}" alt="" class="post-img">
-            <h2 class="category">Politics</h2>
-            <a href="{% url 'bias' %}" class="post-title">{{ row.title }}</a>
-            <span class="post-date"> {{ row.pub_date }} </span>
-            <p class="post-description"> {{ row.desc }} </p>
-            <div class="profile">
-                <img src="{% static 'images/profile.jpg' %}" alt="" class="profile-img">
-                <span class="profile-name">MKHB</span>
+    <div class="post d-flex align-items-center justify-content-center row">
+        {% for row in data %}
+            <div class="col-sm-4 post-box">
+                <img src=" {{ row.image }}" alt="" class="post-img">
+                <h2 class="category">Politics</h2>
+                <a href="{% url 'bias' %}" class="post-title">{{ row.title }}</a>
+                <span class="post-date"> {{ row.pub_date }} </span>
+                <p class="post-description"> {{ row.desc }} </p>
+                <div class="profile">
+                    <img src="{% static 'images/profile.jpg' %}" alt="" class="profile-img">
+                    <span class="profile-name">MKHB</span>
+                </div>
             </div>
-        </div>
-    </div>
 
-    {% endfor %}
+        {% endfor %}
+    </div>
 
 		<footer>
 			<div class="footer-container">
