@@ -15,6 +15,4 @@ def display_csv(request):
     with open('interface/data.csv') as csv_file:
         csv_reader = csv.DictReader(csv_file)
         data = [row for row in csv_reader]
-        print("Hellop!")
-        print(data[0]['title'])
     return render(request, 'interface/interface.html', {'data': data})

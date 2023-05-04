@@ -22,7 +22,7 @@ website = "https://feeds.feedburner.com/ndtvnews-india-news"
 request = requests.get(website, verify=False)
 soup = bs(request.content, 'xml')
 
-with open('../../interface/data.csv', 'w') as f:
+with open('interface/data.csv', 'w') as f:
     fieldnames = ['title', 'image', 'desc', 'pub_date']
     writer = csv.DictWriter(f, fieldnames=fieldnames)
     writer.writeheader()
