@@ -13,7 +13,7 @@
     --container-color: #1a1e21;
     --second-color: rgba(77, 228, 255);
     --text-color: #172317;
-    --bg-color: #fff;
+    --bg-color: rgb(14, 14, 14);
 }
 
 ::selection{
@@ -49,7 +49,7 @@ a{
 
 /* Header */
 header{
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -66,13 +66,15 @@ header.shadow .logo{
     color: var(--text-color);
 }
 
-.nav{
+.navbar{
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 18px 0;
 }
-
+.navbar.scrolled{
+    background-color: #111;
+}
 .logo{
     font-size: 1.5rem;
     font-weight: 600;
@@ -107,17 +109,26 @@ header.shadow .logo{
 }
 
 .home-text{
-    color: var(--bg-color);
+    color: yellow ;;
     text-align: center;
+  
+  -webkit-text-stroke: 6px black;
+  
+
+        
 }
 
 .home-title{
-    font-size: 3.5rem;
+    font-size: 4.5rem;
 }
 
 .home-subtitle{
-    font-size: 1rem;
+    font-size: 2.5rem;
     font-weight: 400;
+    font: bold;
+    color: whitesmoke   ;
+  -webkit-text-stroke: 2px black    ;
+  
 }
 
 .about{
@@ -137,7 +148,7 @@ header.shadow .logo{
 
 .titleText{
     font-weight: 600;
-    color: #111;
+    color:#111;
     font-size: 2rem;
     margin-bottom: 10px;
 }
@@ -201,7 +212,8 @@ header.shadow .logo{
 }
 
 .post-box{
-    background: var(--bg-color);
+    cursor: pointer;
+    background: white;
     box-shadow: 0 4px 14px hsl(35deg 25% 15% / 10%);
     padding: 15px;
     border-radius: 0.5rem;
@@ -403,6 +415,88 @@ footer p{
 .contactBx .info li a:hover{
     color: #fff;
 }
+
+
+.modal {
+    display: none;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    transition: opacity 2.5s ;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    /* background: linear-gradient(45deg, black,white ) center; */
+    background-color: rgba(0, 0, 0, 0.8);   
+    padding: 20px;
+    border: 1px solid black;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    color: white;
+    font-size: 30px;
+    animation-name: modalopen;
+    animation-duration: 1s; 
+}   
+/*css for image inside in box*/
+.modal-content img {
+    max-width: 100%;
+    height: auto;
+    width: 800px; 
+    max-height: 600px; 
+  }
+.modal-content .post-title {
+  color:yellow; 
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 40px;
+}
+.profile-inside {
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+        transition: .5s;
+    }
+    
+  
+    
+    /* for animation in popup box */
+@keyframes modalopen {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+
+
 
 @media (max-width: 1060px){
     .container{
