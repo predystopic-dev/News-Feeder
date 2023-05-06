@@ -7,14 +7,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Information Aggregator </title>
         <!-- Box-icon -->
+        
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href={% static 'css/style.css' %}>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src={% static 'js/main.js' %}></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src={% static 'myScript.js' %}></script>
+
+
     </head>
 <body>
     <header>
-        <div class="navb container">
+        <div class="navbar container">
             <a href="#" class="logo">Information<span>Aggregator </span></a>
             <a href="{% url 'login' %}" class="login">Sign Up</a>
         </div>
@@ -23,7 +28,7 @@
     <section class="home" id="home">
         <div class="home-text container">
             <h2 class="home-title">Information Aggregator </h2>
-            <span class="home-subtitle">Tach news with bias checker</span>
+            <span class="home-subtitle">Tech news with bias checker</span>
         </div>
     </section>
 
@@ -50,26 +55,50 @@
     <div class="post-filter container">
         <span class="filter-item active-filter" data-filter="all">All</span>
         <span class="filter-item" data-filter="tech">Tech</span>
-        <!-- <span class="filter-item" data-filter="food">Food</span> -->
-        <!-- <span class="filter-item" data-filter="news">News</span> -->
+         <span class="filter-item" data-filter="food">Sports</span> 
+         <span class="filter-item" data-filter="news">News</span> 
     </div>
-    
-    <div class="post post d-flex align-items-center justify-content-center row">
+   
+
+    <div class="post d-flex align-items-center justify-content-center row">
+        {% block content %}
         {% for row in data %}
+        
         <div class="post-box ">
-            <img src="{{ row.image}}" alt="" class="post-img">
+            <!-- Inside to popup modal -->
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times; </span>
+                    
+                    <p>NEWS</p>
+                    <div class="img"><img src="{{row.image}}" alt="" class=" post-img"></div>
+                    <span class="post-title">{{row.title}}</span>
+                    <p class="post-description">{{ row.desc}}</p>
+                    <span class="post-date">{{row.pub_date}}</span>
+                    <div class="profile-inside">
+                        <img src="{% static 'images/profile.jpg' %}" alt="" class="profile-img">
+                        <span class="profile-name">ABP</span>
+                    </div>            
+                </div>
+            </div>    
+                <!-- Outside html post-box  -->
+            <img src="{{ row.image}}" alt="" class="post-img "   >
             <h2 class="category">Tech</h2>
-            <a href= {% url 'bias' %} class="post-title">{{ row.title }}</a>
+            <a href= '{% url 'bias' %} class="post-title">{{ row.title }}</a>
             <span class="post-date">{{row.pub_date}}</span>
             <p class="post-description">{{ row.desc}}</p>
             <div class="profile">
-                <img src="{% static 'image/profile.jpg' %}" alt="" class="profile-img">
-                <span class="profile-name">MKHB</span>
+                <img src="{% static 'images/profile.jpg' %}" alt="" class="profile-img">
+                <span class="profile-name">ABP</span>
             </div> 
+            
         </div>
         {% endfor %}
+        {% endblock content %}
 
     </div>
+
+S     
 
     <footer>
         <div class="footer-container">
