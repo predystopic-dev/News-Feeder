@@ -11,30 +11,13 @@ To work locally:
 
 
 
-List of python libraries needed:
-1. asgiref            3.6.0
-2. beautifulsoup4     4.12.2
-3. bs4                0.0.1
-4. certifi            2022.12.7
-5. charset-normalizer 3.1.0
-6. distlib            0.3.6
-7. Django             4.2
-8. filelock           3.12.0
-9. idna               3.4
-10. lxml               4.9.2
-11. numpy              1.24.3
-12. pandas             2.0.1
-13. Pillow             9.5.0
-14. pip                23.1.2
-15. platformdirs       3.5.0
-16. python-dateutil    2.8.2
-17. pytz               2023.3
-18. requests           2.29.0
-19. setuptools         67.6.1
-20. six                1.16.0
-21. soupsieve          2.4.1
-22. sqlparse           0.4.4
-23. tzdata             2023.3
-24. urllib3            1.26.15
-25. virtualenv         20.23.0
-26. wheel              0.40.0
+Install these libraries in virtual environment:
+  1. requests
+  2. beautifulsoup
+  3. django
+  4. Pillow
+  5. numpy
+  6. pandas
+  7. lxml
+  8. urllib3
+  9. certifi
