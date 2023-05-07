@@ -36,6 +36,30 @@ with open('interface/data.csv', 'w') as f:
 
 #print(f'{title}\n{image}\n{desc}\n\n')
 
+'''
+for item in soup.find_all('item'):
+    headline = item.title.text.strip()
+    image = item.find('media:content')['url']
+    desc = item.description.text.strip()
+    pub_date = item.pubDate.text[4:16].strip()
+    url = item.link.text.strip()
+    r = requests.get(url, verify=False)
+    full_article = bs(r.content, 'html.parser')
+    metadata_div = full_article.find('div', class_='pst-by_ul')
+    author_name = metadata_div.find('span', itemprop='author').find('span', itemprop='name').text.strip()
+    tag = full_article.find('span', class_='pst-by_li').text.strip()
+    #article_div = bs(r.content, 'html.parser').find('div', id='ins_storybody')
+    location = full_article.find('div', id='ins_storybody').find('b', class_='place_cont').text.strip()
+    body = ""
+    for p in full_article.find('div', id='ins_storybody').find_all('p'):
+        body += p.text.strip()
+    #print(f'{headline}\n{image}\n{desc}\n{pub_date}\n{url}\nauthor name: {author_name}\n{location}\n{body}\n\n')
+    article = Article(headline=headline, author_name=author_name, url=url, pub_date=pub_date, image=image, body=body, bias_score=bias_score, tag=tag, location=location)
+    article.save()
+
+'''
+
+
 
 ''' BBC NEWS
 website = "http://feeds.bbci.co.uk/news/technology/rss.xml"

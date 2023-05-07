@@ -62,43 +62,40 @@
 
     <div class="post d-flex align-items-center justify-content-center row">
         {% block content %}
-        {% for row in data %}
-        
-        <div class="post-box ">
-            <!-- Inside to popup modal -->
-            <div id="myModal" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times; </span>
-                    
-                    <p>NEWS</p>
-                    <div class="img"><img src="{{row.image}}" alt="" class=" post-img"></div>
-                    <span class="post-title">{{row.title}}</span>
-                    <p class="post-description">{{ row.desc}}</p>
-                    <span class="post-date">{{row.pub_date}}</span>
-                    <div class="profile-inside">
+            {% for row in data %}
+                <div class="post-box ">
+                    <!-- Inside to popup modal -->
+                    <div id="myModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times; </span>
+
+                            <p>NEWS</p>
+                            <div class="img"><img src="{{ row.image }}" alt="" class=" post-img"></div>
+                            <span class="post-title">{{ row.title }}</span>
+                            <p class="post-description">{{ row.desc }}</p>
+                            <span class="post-date">{{ row.pub_date }}</span>
+                            <div class="profile-inside">
+                                <img src="{% static 'images/profile.jpg' %}" alt="" class="profile-img">
+                                <span class="profile-name">ABP</span>
+                            </div>
+                        </div>
+                    </div>
+                        <!-- Outside html post-box  -->
+                    <img src="{{ row.image }}" alt="" class="post-img">
+                    <h2 class="category">Tech</h2>
+                    <a href="{% url 'bias' %}" class="post-title">{{ row.title }}</a>
+                    <span class="post-date">{{ row.pub_date }}</span>
+                    <p class="post-description">{{ row.desc }}</p>
+                    <div class="profile">
                         <img src="{% static 'images/profile.jpg' %}" alt="" class="profile-img">
                         <span class="profile-name">ABP</span>
-                    </div>            
+                    </div>
                 </div>
-            </div>    
-                <!-- Outside html post-box  -->
-            <img src="{{ row.image}}" alt="" class="post-img "   >
-            <h2 class="category">Tech</h2>
-            <a href= '{% url 'bias' %} class="post-title">{{ row.title }}</a>
-            <span class="post-date">{{row.pub_date}}</span>
-            <p class="post-description">{{ row.desc}}</p>
-            <div class="profile">
-                <img src="{% static 'images/profile.jpg' %}" alt="" class="profile-img">
-                <span class="profile-name">ABP</span>
-            </div> 
-            
-        </div>
-        {% endfor %}
+            {% endfor %}
         {% endblock content %}
 
     </div>
 
-S     
 
     <footer>
         <div class="footer-container">
