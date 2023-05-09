@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'aggregator',
     'interface',
+    'user_registration',
+
 ]
 
 MIDDLEWARE = [
