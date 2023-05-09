@@ -14,8 +14,6 @@
         <script src={% static 'js/main.js' %}></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src={% static 'myScript.js' %}></script>
-
-
     </head>
 <body>
     <header>
@@ -55,7 +53,7 @@
     <div class="post-filter container">
         <span class="filter-item active-filter" data-filter="all">All</span>
         <span class="filter-item" data-filter="tech">Tech</span>
-         <span class="filter-item" data-filter="food">Sports</span> 
+         <span class="filter-item" data-filter="Sports">Sports</span> 
          <span class="filter-item" data-filter="news">News</span> 
     </div>
    
@@ -82,7 +80,7 @@
                     </div>
                         <!-- Outside html post-box  -->
                     <img src="{{ row.image }}" alt="" class="post-img">
-                    <h2 class="category">Tech</h2>
+                    <h2 class="category">Tech</h2> 
                     <a href="{% url 'bias' %}" class="post-title">{{ row.title }}</a>
                     <span class="post-date">{{ row.pub_date }}</span>
                     <p class="post-description">{{ row.desc }}</p>
@@ -93,6 +91,8 @@
                 </div>
             {% endfor %}
         {% endblock content %}
+
+
 
     </div>
 
