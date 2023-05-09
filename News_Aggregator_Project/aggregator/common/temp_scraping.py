@@ -4,6 +4,7 @@ import requests
 import shutil
 from bs4 import BeautifulSoup as bs
 import csv
+from aggregator.models import Article
 
 ''' HACKER NEWS
 website = "https://news.ycombinator.com/rss"
@@ -22,21 +23,20 @@ website = "https://feeds.feedburner.com/ndtvnews-india-news"
 request = requests.get(website, verify=False)
 soup = bs(request.content, 'xml')
 
-with open('interface/data.csv', 'w') as f:
-    fieldnames = ['title', 'image', 'desc', 'pub_date']
-    writer = csv.DictWriter(f, fieldnames=fieldnames)
-    writer.writeheader()
-    for item in soup.find_all('item'):
-        title = item.title.text.strip()
-        image = item.find('media:content')['url']
-        desc = item.description.text.strip()
-        pub_date = item.pubDate.text[4:16].strip()
-        writer.writerow({'title': title, 'image': image, 'desc': desc, 'pub_date': pub_date})
+# with open('interface/data.csv', 'w') as f:
+#     fieldnames = ['title', 'image', 'desc', 'pub_date']
+#     writer = csv.DictWriter(f, fieldnames=fieldnames)
+#     writer.writeheader()
+#     for item in soup.find_all('item'):
+#         title = item.title.text.strip()
+#         image = item.find('media:content')['url']
+#         desc = item.description.text.strip()
+#         pub_date = item.pubDate.text[4:16].strip()
+#         writer.writerow({'title': title, 'image': image, 'desc': desc, 'pub_date': pub_date})
 #print(soup.prettify())
 
 #print(f'{title}\n{image}\n{desc}\n\n')
 
-'''
 for item in soup.find_all('item'):
     headline = item.title.text.strip()
     image = item.find('media:content')['url']
@@ -56,8 +56,6 @@ for item in soup.find_all('item'):
     #print(f'{headline}\n{image}\n{desc}\n{pub_date}\n{url}\nauthor name: {author_name}\n{location}\n{body}\n\n')
     article = Article(headline=headline, author_name=author_name, url=url, pub_date=pub_date, image=image, body=body, bias_score=bias_score, tag=tag, location=location)
     article.save()
-
-'''
 
 
 
