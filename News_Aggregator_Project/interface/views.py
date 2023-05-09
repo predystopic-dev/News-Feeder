@@ -5,7 +5,7 @@ import csv
 def interface(request): return render(request, 'interface/interface.html')
 
 
-def my_login(request): return render(request, 'interface/my-login.html')
+# def my_login(request): return render(request, 'interface/my-login.html')
 
 
 def bias(request): return render(request, 'interface/bias.html')
